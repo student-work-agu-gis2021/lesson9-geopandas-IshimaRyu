@@ -35,6 +35,8 @@ from pyproj import CRS
 
 # Convert DataFrame into a GeoDataFrame
 geo= gpd.GeoDataFrame(data, geometry='geometry',crs=CRS.from_epsg(4326).to_wkt())
+fp="Kruger_posts.shp"
+geo.to_file(fp)
 # CODE FOR TESTING YOUR SOLUTION
 
 # Check the geodataframe head
