@@ -12,7 +12,7 @@ import geopandas as gpd
 from shapely.geometry import Point
 # YOUR CODE HERE 1 to read data
 data = pd.read_csv('data/some_posts.csv')
-point = lambda row:Point(row['lat'], row['lon'])
+point =lambda row:Point(row['lat'], row['lon'])
 data['geometry'] = data.apply(point, axis=1)
 
 
@@ -32,8 +32,9 @@ print(data['geometry'].head())
 import geopandas as gpd
 from pyproj import CRS
 
+
 # Convert DataFrame into a GeoDataFrame
-geo=None
+geo= gpd.GeoDataFrame(data, geometry='geometry',crs=CRS.from_epsg(4326).to_wkt())
 # CODE FOR TESTING YOUR SOLUTION
 
 # Check the geodataframe head
